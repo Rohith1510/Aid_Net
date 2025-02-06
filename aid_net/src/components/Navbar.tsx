@@ -3,7 +3,6 @@ import { client } from "@/app/client";
 import Link from "next/link";
 import { ConnectButton, lightTheme, useActiveAccount } from "thirdweb/react";
 import Image from 'next/image';
-import thirdwebIcon from "@public/thirdweb.svg";
 import AidNetlogo from "@public/Aid_Net_logo.png"
 
 const Navbar = () => {
@@ -25,8 +24,8 @@ const Navbar = () => {
                         </svg>
                         </button>
                     </div>
-                    <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="flex flex-shrink-0 items-center">
+                    <div className="flex flex-1 items-center">
+                        <div className="flex items-center space-x-4">
                             <Image 
                                 src={AidNetlogo} 
                                 alt="AidNet Logo" 
@@ -36,25 +35,20 @@ const Navbar = () => {
                                     filter: "drop-shadow(0px 0px 24px #a726a9a8)",
                                 }}
                             />
-                        </div>
-                        <div className="hidden sm:ml-6 sm:block">
+                            <h1 className="text-2xl font-bold text-slate-100">Aid<span className="text-red-500">Net.</span> </h1>
                             <div className="flex space-x-4">
-                                <Link
-                                    href={'/'}
-                                >
-                                    <p className="rounded-md px-3 py-4 text-sm font-medium text-slate-100">Campaigns</p>
+                                <Link href={'/'}>
+                                    <p className="rounded-md px-3 py-2 text-sm font-medium text-slate-100">Campaigns</p>
                                 </Link>
                                 {account && (
-                                    <Link
-                                        href={`/dashboard/${account?.address}`}
-                                    >
+                                    <Link href={`/dashboard/${account?.address}`}>
                                         <p className="rounded-md px-3 py-2 text-sm font-medium text-slate-100">Dashboard</p>
                                     </Link>
                                 )}
                             </div>
                         </div>
                     </div>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <div className="flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                         <ConnectButton 
                             client={client}
                             theme={lightTheme()}

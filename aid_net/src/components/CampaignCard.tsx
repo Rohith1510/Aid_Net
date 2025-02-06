@@ -54,7 +54,7 @@ export const CampaignCard: React.FC<CampaignCardProps> = ({ campaignAddress }) =
     }
 
     return (
-            <div className="flex flex-col justify-between max-w-sm p-6 bg-white border border-slate-200 rounded-lg shadow">
+            <div className="flex flex-col justify-between max-w-sm p-6 bg-emerald-300 border border-slate-200 rounded-lg shadow">
                 <div>
                     {!isLoadingBalance && (
                         <div className="mb-4">
@@ -71,7 +71,7 @@ export const CampaignCard: React.FC<CampaignCardProps> = ({ campaignAddress }) =
                     )}
                     <h5 className="mb-2 text-2xl font-bold tracking-tight">{campaignName}</h5>
                     
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{campaignDescription}</p>
+                    <p className="mb-3 font-normal text-gray-700 ">{campaignDescription}</p>
                 </div>
                 
                 <Link
