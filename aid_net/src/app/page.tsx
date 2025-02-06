@@ -4,11 +4,13 @@ import Image from "next/image";
 import { ConnectButton } from "thirdweb/react";
 import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
-      <div className="py-20">
+      <div className="py-2 ">
+        <Navbar />
         <Header />
 
         <div className="flex justify-center mb-20">
@@ -52,25 +54,27 @@ function Header() {
   );
 }
 
+
+
 function ThirdwebResources() {
   return (
     <div className="grid gap-4 lg:grid-cols-3 justify-center">
       <ArticleCard
-        title="thirdweb SDK Docs"
+        title="Multi-chain"
         href="https://portal.thirdweb.com/typescript/v5"
-        description="thirdweb TypeScript SDK documentation"
+        description="Transfer funds with multi-chain"
       />
 
       <ArticleCard
-        title="Components and Hooks"
+        title="Community Deriven Network"
         href="https://portal.thirdweb.com/typescript/v5/react"
-        description="Learn about the thirdweb React components and hooks in thirdweb SDK"
+        description="Join the community and help build the future with turstable funds."
       />
 
       <ArticleCard
-        title="thirdweb Dashboard"
+        title="Transparent and Secure"
         href="https://thirdweb.com/dashboard"
-        description="Deploy, configure, and manage your smart contracts from the dashboard."
+        description="AidNet is a transparent and secure platform."
       />
     </div>
   );
