@@ -4,12 +4,13 @@ import Link from "next/link";
 import { ConnectButton, lightTheme, useActiveAccount } from "thirdweb/react";
 import Image from 'next/image';
 import thirdwebIcon from "@public/thirdweb.svg";
+import AidNetlogo from "@public/Aid_Net_logo.png"
 
 const Navbar = () => {
     const account = useActiveAccount();
 
     return (
-        <nav className="bg-slate-100 border-b-2 border-b-slate-300">
+        <nav className="bg-[#323232] border-b-2 border-b-slate-300">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -27,10 +28,10 @@ const Navbar = () => {
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <div className="flex flex-shrink-0 items-center">
                             <Image 
-                                src={thirdwebIcon} 
-                                alt="Your Company" 
-                                width={32} 
-                                height={32} 
+                                src={AidNetlogo} 
+                                alt="AidNet Logo" 
+                                width={60} 
+                                height={60} 
                                 style={{
                                     filter: "drop-shadow(0px 0px 24px #a726a9a8)",
                                 }}
@@ -41,13 +42,13 @@ const Navbar = () => {
                                 <Link
                                     href={'/'}
                                 >
-                                    <p className="rounded-md px-3 py-2 text-sm font-medium text-slate-700">Campaigns</p>
+                                    <p className="rounded-md px-3 py-4 text-sm font-medium text-slate-100">Campaigns</p>
                                 </Link>
                                 {account && (
                                     <Link
                                         href={`/dashboard/${account?.address}`}
                                     >
-                                        <p className="rounded-md px-3 py-2 text-sm font-medium text-slate-700">Dashboard</p>
+                                        <p className="rounded-md px-3 py-2 text-sm font-medium text-slate-100">Dashboard</p>
                                     </Link>
                                 )}
                             </div>

@@ -1,100 +1,62 @@
 "use client";
-
-import Image from "next/image";
-import { ConnectButton } from "thirdweb/react";
-import thirdwebIcon from "@public/thirdweb.svg";
+import { baseSepolia } from "thirdweb/chains";
+import { getContract } from "thirdweb";
+import { CROWDFUNDING_FACTORY } from "./constants/contracts";
 import { client } from "./client";
-import Navbar from "@/components/Navbar";
+import { useReadContract } from "thirdweb/react";
+import { CampaignCard } from "@/components/CampaignCard";
 
 export default function Home() {
-  return (
-    <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
-      <div className="py-2 ">
-        <Navbar />
-        <Header />
 
-        <div className="flex justify-center mb-20">
-          <ConnectButton
-            client={client}
-            appMetadata={{
-              name: "Example App",
-              url: "https://example.com",
-            }}
-          />
+  const contract = getContract({
+    client: client,
+    chain: baseSepolia,
+    address: CROWDFUNDING_FACTORY,
+  });
+
+  // Get all campaigns deployed with CrowdfundingFactory
+  // const {data: campaigns, isLoading: isLoadingCampaigns, refetch: refetchCampaigns } = useReadContract({
+  //   contract: contract,
+  //   method: "function getAllCampaigns() view returns ((address campaignAddress, address owner, string name)[])",
+  //   params: []
+  // });
+
+
+  const { data:campaigns, isLoading: isLoadingCampaigns, refetch: refetchCampaigns } = useReadContract({
+    contract: contract,
+    method:
+      "function getAllCampaigns() view returns ((address campaignAddress, address owner, string name, uint256 creationTime)[])",
+    params: [],
+  });
+console.log(campaigns);
+
+  return (
+    <main className="mx-auto max-w-7xl px-4 mt-4 sm:px-6 lg:px-8">
+      <div className="py-10 ">
+        
+        <h1 className="text-4xl font-bold mb-4">Campaigns:</h1>
+        <div className="grid grid-cols-3 gap-4">
+          {!isLoadingCampaigns && campaigns && (
+            campaigns.length > 0 ? (
+              campaigns.map((campaign) => (
+                <CampaignCard
+                  key={campaign.campaignAddress}
+                  campaignAddress={campaign.campaignAddress}
+                />
+              ))
+            ) : (
+              <p>No Campaigns</p>
+            )
+          )}
         </div>
 
-        <ThirdwebResources />
+        
       </div>
     </main>
   );
 }
 
-function Header() {
-  return (
-    <header className="flex flex-col items-center mb-20 md:mb-20">
-      <Image
-        src={thirdwebIcon}
-        alt=""
-        className="size-[150px] md:size-[150px]"
-        style={{
-          filter: "drop-shadow(0px 0px 24px #a726a9a8)",
-        }}
-      />
-
-      <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-green-500 ">
-        Aid
-        <span className="text-zinc-300 inline-block mx-1"> </span>
-        <span className="inline-block -skew-x-6 text-zinc-100"> Net. </span>
-      </h1>
-
-      <p className="text-zinc-300 text-base">
-        Decentralized Emergency Response Network⚡️
-      </p>
-    </header>
-  );
-}
 
 
 
-function ThirdwebResources() {
-  return (
-    <div className="grid gap-4 lg:grid-cols-3 justify-center">
-      <ArticleCard
-        title="Multi-chain"
-        href="https://portal.thirdweb.com/typescript/v5"
-        description="Transfer funds with multi-chain"
-      />
 
-      <ArticleCard
-        title="Community Deriven Network"
-        href="https://portal.thirdweb.com/typescript/v5/react"
-        description="Join the community and help build the future with turstable funds."
-      />
-
-      <ArticleCard
-        title="Transparent and Secure"
-        href="https://thirdweb.com/dashboard"
-        description="AidNet is a transparent and secure platform."
-      />
-    </div>
-  );
-}
-
-function ArticleCard(props: {
-  title: string;
-  href: string;
-  description: string;
-}) {
-  return (
-    <a
-      href={props.href + "?utm_source=next-template"}
-      target="_blank"
-      className="flex flex-col border border-zinc-800 p-4 rounded-lg hover:bg-zinc-900 transition-colors hover:border-zinc-700"
-    >
-      <article>
-        <h2 className="text-lg font-semibold mb-2">{props.title}</h2>
-        <p className="text-sm text-zinc-400">{props.description}</p>
-      </article>
-    </a>
-  );
-}
