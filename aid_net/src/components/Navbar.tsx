@@ -9,7 +9,7 @@ const Navbar = () => {
     const account = useActiveAccount();
 
     return (
-        <nav className="bg-[#323232] border-b-2 border-b-slate-300">
+        <nav className="sticky top-0  bg-slate-800 border-b-2 border-black z-50">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -25,7 +25,7 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div className="flex flex-1 items-center">
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-3">
                             <Image 
                                 src={AidNetlogo} 
                                 alt="AidNet Logo" 
@@ -35,14 +35,14 @@ const Navbar = () => {
                                     filter: "drop-shadow(0px 0px 24px #a726a9a8)",
                                 }}
                             />
-                            <h1 className="text-2xl font-bold text-slate-100">Aid<span className="text-red-500">Net.</span> </h1>
-                            <div className="flex space-x-4">
+                            <h1 className="text-3xl font-bold text-slate-100">Aid<span className="text-red-500">Net.</span> </h1>
+                            <div className="flex space-x-4 ">
                                 <Link href={'/'}>
-                                    <p className="rounded-md px-3 py-2 text-sm font-medium text-slate-100">Campaigns</p>
+                                    <p className="rounded-md px-3 py-2 text-md  font-bold text-slate-100">Campaigns</p>
                                 </Link>
                                 {account && (
                                     <Link href={`/dashboard/${account?.address}`}>
-                                        <p className="rounded-md px-3 py-2 text-sm font-medium text-slate-100">Dashboard</p>
+                                        <p className="rounded-md px-3 py-2 text-md font-bold text-slate-100">Dashboard</p>
                                     </Link>
                                 )}
                             </div>
