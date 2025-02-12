@@ -66,7 +66,7 @@ const HeroSection = () => {
               ))}
             </div>
             <span className="text-sm text-gray-400">
-              100+ Trusted Campaigns
+              100+ Trusted✅ Campaigns
             </span>
           </div>
         </div>

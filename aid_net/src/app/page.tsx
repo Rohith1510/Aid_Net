@@ -6,6 +6,7 @@ import { client } from "./client";
 import { useReadContract } from "thirdweb/react";
 import { CampaignCard } from "@/components/CampaignCard";
 import HeroSection from "@/components/Herosection";
+import LampDemo from "@/components/ui/lamp";
 
 export default function Home() {
 
@@ -35,7 +36,8 @@ console.log(campaigns);
     // <main className="mx-auto max-w-7xl px-4 mt-0 sm:px-6 lg:px-8">
     <main className="mx-auto  max-w-full  mt-0 ">
       <HeroSection/>
-      <div id="campaigns" className="py-10 px-4 bg-black">
+      <LampDemo/>
+      <div id="campaigns" className="py-10 px-4 bg-slate-950">
         
         <h1 className="text-4xl font-bold mb-4 text-white ">Campaigns:</h1>
         <div className="grid grid-cols-3 gap-4 ">
@@ -55,6 +57,7 @@ console.log(campaigns);
 
         
       </div>
+      
     </main>
   );
 }
