@@ -54,37 +54,51 @@ export const CampaignCard: React.FC<CampaignCardProps> = ({ campaignAddress }) =
     }
 
     return (
-            <div className="flex flex-col justify-between max-w-sm p-6 bg-black border border-slate-200 rounded-lg shadow">
+            <div className="relative max-w-sm group">
+            <div className="relative p-[1px] rounded-lg bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 transition-colors duration-300">
+
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 blur-sm opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+
+              <div className="relative flex flex-col justify-between p-6 h-full rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out bg-gradient-to-br from-black/90 to-black/80 backdrop-blur-md hover:backdrop-blur-lg group-hover:scale-[1.01]">
                 <div>
-                    {!isLoadingBalance && (
-                        <div className="mb-4">
-                            <div className="relative w-full h-6 bg-gray-200 rounded-full ">
-                                <div className="h-6 bg-blue-600 rounded-full dark:bg-blue-500 text-right" style={{ width: `${balancePercentage?.toString()}%`}}>
-                                    <p className="text-black dark:text-black text-xs p-1">${balance?.toString()}</p>
-                                </div>
-                                <p className="absolute top-0 right-0 text-black dark:text-black text-xs p-1">
-                                    {balancePercentage >= 100 ? "" : `${balancePercentage?.toString()}%`}
-                                </p>
-                            </div>
+                
+                  {!isLoadingBalance && (
+                    <div className="mb-4">
+                      <div className="relative w-full h-6 bg-black/30 backdrop-blur-sm rounded-full overflow-hidden">
+                        <div 
+                          className="h-6 bg-gradient-to-r from-blue-500/60 to-blue-600/70 backdrop-blur-sm rounded-full flex items-center justify-end" 
+                          style={{ width: `${balancePercentage?.toString()}%` }}
+                        >
+                          <p className="text-white text-xs px-2">${balance?.toString()}</p>
                         </div>
-                        
-                    )}
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{campaignName}</h5>
-                    
-                    <p className="mb-3 font-normal text-gray-400 ">{campaignDescription}</p>
+                        <p className="absolute top-0 right-0 text-white text-xs p-1">
+                          {balancePercentage >= 100 ? "" : `${balancePercentage?.toString()}%`}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                                    
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-white group-hover:text-blue-200 transition-colors duration-300">{campaignName}</h5>
+                  <p className="mb-3 font-normal text-gray-300 group-hover:text-gray-200 transition-colors duration-300">{campaignDescription}</p>
                 </div>
                 
+                
                 <Link
-                    href={`/campaign/${campaignAddress}`}
-                    passHref={true}
+                  href={`/campaign/${campaignAddress}`}
+                  passHref={true}
                 >
-                    <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        View Campaign
-                        <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                        </svg>
-                    </p>
+                  <p className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-blue-600/50 to-purple-600/50 border border-blue-500/30 rounded-lg transition-all duration-300 backdrop-blur-sm hover:from-blue-500/60 hover:to-purple-500/60 hover:border-blue-400/50 focus:ring-2 focus:outline-none focus:ring-blue-500/50">
+                    View Campaign
+                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </p>
                 </Link>
+
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-purple-400/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              </div>
             </div>
+          </div>
     )
 };

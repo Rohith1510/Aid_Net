@@ -16,9 +16,10 @@ export default function LampDemo() {
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
-        Decentralized Gateway <br /> for the Emergency Aid
+        The <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600">Future Gateway</span> to Aid <br /> Faster, Smarter, Fairer.
+        
       </motion.h1>
-    </LampContainer>
+    </LampContainer>    
   );
 }
 
@@ -99,6 +100,7 @@ export const LampContainer = ({
       <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5">
         {children}
       </div>
+      
     </div>
   );
 };
