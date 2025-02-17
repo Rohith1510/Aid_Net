@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import { AnimatedTooltip } from './ui/animated-tooltip';
 
 const HeroSection = () => {
   return (
@@ -48,24 +49,21 @@ const HeroSection = () => {
                   stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                </svg>             
               </div>
             </a>
-            
-            
+
           </div>
 
           {/* Satisfied Clients Section */}
-          <div className="flex items-center mt-8">
-            <div className="flex -space-x-3 mr-4">
-              {[1, 2, 3, 4, 5].map((_, index) => (
-                <div 
-                  key={index} 
-                  className="w-10 h-10 rounded-full border-2 border-white bg-gray-700"
-                />
-              ))}
-            </div>
-            <span className="text-sm text-gray-400">
+          <div className="flex items-center mt-8 ">
+            <AnimatedTooltip items={[
+              { id: 1, name: 'Surya', designation: 'Manager', image: '/colors.jpg' },
+              { id: 2, name: 'Maddy', designation: 'Developer', image: '/yellowperson.jpg' },
+              { id: 3, name: 'Sam Johnson', designation: 'Designer', image: '/whale.png' },
+              { id: 4, name: 'Putin', designation: 'Analyst', image: '/cryptopunk.png' },
+            ]}/>
+            <span className="text-sm text-gray-400 ml-5">
               100+ Trusted✅ Campaigns
             </span>
           </div>
