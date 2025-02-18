@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-
 export default function LampDemo() {
   return (
     <LampContainer>
@@ -99,8 +98,8 @@ export const LampContainer = ({
 
       <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5">
         {children}
+       
       </div>
-      
     </div>
   );
 };
