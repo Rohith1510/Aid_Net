@@ -45,6 +45,11 @@ const Navbar = () => {
                                         <p className="rounded-md px-3 py-2 text-md font-bold text-slate-100">Dashboard</p>
                                     </Link>
                                 )}
+                                {account && (
+                                    <Link href={`/analytics/${account?.address}`}>
+                                        <p className="rounded-md px-3 py-2 text-md font-bold text-slate-100">Analytics</p>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>
