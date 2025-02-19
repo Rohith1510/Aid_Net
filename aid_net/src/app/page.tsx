@@ -7,6 +7,7 @@ import { useReadContract } from "thirdweb/react";
 import { CampaignCard } from "@/components/CampaignCard";
 import HeroSection from "@/components/Herosection";
 import LampDemo from "@/components/ui/lamp";
+import TokenCard from "@/components/TokenCard";
 
 export default function Home() {
 
@@ -37,6 +38,7 @@ console.log(campaigns);
     <main className="mx-auto  max-w-full  mt-0 ">
       <HeroSection/>
       <LampDemo/>
+      <TokenCard/>
       <div id="campaigns" className="py-10 px-4 bg-slate-950">
         
         <h1 className="text-4xl font-bold mb-4 text-white ">Campaigns:</h1>
