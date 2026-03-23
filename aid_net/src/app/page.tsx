@@ -17,12 +17,7 @@ export default function Home() {
     address: CROWDFUNDING_FACTORY,
   });
 
-  // Get all campaigns deployed with CrowdfundingFactory
-  // const {data: campaigns, isLoading: isLoadingCampaigns, refetch: refetchCampaigns } = useReadContract({
-  //   contract: contract,
-  //   method: "function getAllCampaigns() view returns ((address campaignAddress, address owner, string name)[])",
-  //   params: []
-  // });
+  
 
 
   const { data:campaigns, isLoading: isLoadingCampaigns, refetch: refetchCampaigns } = useReadContract({
