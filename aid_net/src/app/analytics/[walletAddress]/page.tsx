@@ -30,7 +30,7 @@ const dots = [
 
 // return(
 //     <div className="">
-//         <h1 className="text-center text-2xl sticky">A Transparent World's Datas</h1>
+//         <h1 className="text-center text-2xl sticky">A Transparent World&apos;s Datas</h1>
 //         <WorldMap dots={dots} lineColor="#ff5733" />
 
 //         <EmergencyAidDashboard/>
@@ -56,7 +56,7 @@ interface AnalyticsProps {
 const Analytics = () => {
     return (
         <div className="p-4">
-            <h1 className="text-center font-bold text-2xl sticky mb-6">A Transparent World's Datas</h1>
+            <h1 className="text-center font-bold text-2xl sticky mb-6">A Transparent World&apos;s Datas</h1>
 
             <Card className="w-full relative overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 shadow-xl 
       transition-all duration-500 ">
